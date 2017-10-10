@@ -1,0 +1,13 @@
+# 1.当采用https 关联远程库时， 每次push 都要输入用户名密码
+	》1 .设置认证信息存储
+		git config --global credential.helper "store"
+		配置好后在 .gitconfig 文件中可以看到
+	》2. 改为 SSH方式
+		在添加远程库的时候使用了https的方式,所以每次都要用https的方式push到远程库，速度比较慢
+		1）查看使用的传输协议：
+			git remote -v
+		2) 重新设置成ssh的方式：
+			git remote rm origin
+			git remote add origin git@github.com:username/repository.git
+			git push -u origin master	
+		
